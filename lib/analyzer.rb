@@ -26,11 +26,14 @@ class Analyzer
       app_dir_strings = Dir.glob('*')
       app_dir_strings.each do |app_dir_str|
         app_detail_json = generate_detail_usage(date_dir_str, app_dir_str)
-        detail_usages << { date: reformat_date_str(date_dir_str), app: app_dir_str, usages: app_detail_json }
+        detail_usages << {
+          'date'   => reformat_date_str(date_dir_str),
+          'app'    => app_dir_str,
+          'usages' => app_detail_json
+        }
       end
     end
 
-    p detail_usages
     detail_usages
   end
 
