@@ -18,6 +18,15 @@ module Adapters
       '#ff6d00',
       '#dd2c00'
     ]
+    COLOR_MAPPINGS = {
+      'Alfred' => '#d50000',
+      'Citrix Viewer' => '#aa00ff',
+      'Code' => '#304ffe',
+      'Console' => '#00b8d4',
+      'Google Chrome' => '#00c853',
+      'Postman' => '#aeea00',
+      'iTerm2' => '#ffab00',
+    }
 
     def initialize(data)
       @data = data
@@ -48,6 +57,8 @@ module Adapters
     end
 
     def string_to_color(str)
+      return COLOR_MAPPINGS[str] if COLOR_MAPPINGS[str]
+
       num = str.codepoints.to_a.sum
       COLORS[num % COLORS.length]
     end
