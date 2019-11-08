@@ -1,3 +1,4 @@
+require 'csv'
 require 'json'
 
 class Exporter
